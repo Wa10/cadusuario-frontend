@@ -1,0 +1,10 @@
+.container {
+   width: 100%;
+   height: 100%;
+ }
+
+.sidenav {
+   width: 13rem;
+   background: rgb(19, 125, 232);
+}
+ 
