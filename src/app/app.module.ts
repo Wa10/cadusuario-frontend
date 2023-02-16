@@ -15,6 +15,9 @@ import { HeaderComponent } from './components/header/header.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
 
 
 @NgModule({
@@ -23,7 +26,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NavComponent,
     HomeComponent,
     HeaderComponent,
-    FuncionarioListComponent
+    FuncionarioListComponent,
+    FuncionarioCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     MatSidenavModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
