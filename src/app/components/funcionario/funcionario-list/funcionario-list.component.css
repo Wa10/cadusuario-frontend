@@ -14,3 +14,7 @@ button {
   width: 15%;
   margin-bottom: 2rem;
 }
+
+.delete {
+  color: red;
+}

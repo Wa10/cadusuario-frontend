@@ -12,8 +12,8 @@ export class FuncionarioCreateComponent implements OnInit {
   success: boolean = false;
   error: boolean = false;
 
-  errorApi: String;
-  
+  errorApi: string;
+
   funcionario: Funcionario = {
     id: null,
     nome: '',
@@ -21,7 +21,9 @@ export class FuncionarioCreateComponent implements OnInit {
     email: '',
     nis: null,
   };
-  
+
+  durationInSeconds = 5;
+
   nome = new FormControl(null, [Validators.min(2), Validators.min(30)]);
   sobrenome = new FormControl(null, [Validators.min(2), Validators.min(50)]);
   email = new FormControl(null, Validators.email);
@@ -33,7 +35,7 @@ export class FuncionarioCreateComponent implements OnInit {
 
   save(): void {
     this.service.save(this.funcionario).subscribe(
-      () => {
+      response => {
         this.success = true;
       },
       (errorResponse) => {

@@ -11,13 +11,14 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { FuncionarioListComponent } from './components/funcionario/funcionario-list/funcionario-list.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
+import { FuncionarioUpdateComponent } from './components/funcionario/funcionario-update/funcionario-update.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FuncionarioCreateComponent } from './components/funcionario/funcionario
     HomeComponent,
     HeaderComponent,
     FuncionarioListComponent,
-    FuncionarioCreateComponent
+    FuncionarioCreateComponent,
+    FuncionarioUpdateComponent,
   ],
   imports: [
     BrowserModule,

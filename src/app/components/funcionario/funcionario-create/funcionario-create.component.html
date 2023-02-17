@@ -2,9 +2,12 @@
     <h1>Cadastrar Funcionário</h1>
   <form action="" class="form">
 
-    <div class="alert alert-success" role="alert" *ngIf="success == true">
-        Cliente salvo/atualizado com sucesso!    
+    <div class="mensagemSucesso" *ngIf="success" >
+      Funcionário salvo com sucesso!
     </div>
+    <div class="mensagemErro" *ngIf="error">
+      {{ erro  }}    
+  </div>
 
     <mat-form-field class="label" appearance="fill">
       <mat-label>Nome</mat-label>
@@ -40,8 +43,7 @@
     <mat-form-field class="label" appearance="fill">
       <mat-label>NIS</mat-label>
       <input
-      type="text"
-      pattern="[0-9]+$" 
+      type="number"
       [(ngModel)]="funcionario.nis"
       [formControl]="nis"
       required
@@ -51,13 +53,5 @@
     <button [disabled]="!validacao()" (click)="save()" class="label" mat-raised-button color="primary">Cadastrar</button>
     <button routerLink="../" class="label" mat-raised-button color="warn">Cancelar</button>
 
-    <div class="mensagemSucesso" *ngIf="success">
-        Cliente salvo/atualizado com sucesso!    
-    </div>
-
-    <div class="mensagemError" *ngIf="error">
-        Teste
-        {{errorApi}}   
-    </div>
   </form>
 </div>

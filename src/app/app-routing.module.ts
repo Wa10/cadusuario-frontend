@@ -1,5 +1,5 @@
+import { FuncionarioUpdateComponent } from './components/funcionario/funcionario-update/funcionario-update.component';
 import { FuncionarioCreateComponent } from './components/funcionario/funcionario-create/funcionario-create.component';
-import { LoginComponent } from './components/login/login.component';
 import { FuncionarioListComponent } from './components/funcionario/funcionario-list/funcionario-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,7 +16,10 @@ const routes: Routes = [
         component: FuncionarioListComponent,
       },
       { path: 'funcionarios/create', 
-      component: FuncionarioCreateComponent },
+      component: FuncionarioCreateComponent},
+
+      { path: 'funcionarios/update/:id', 
+      component: FuncionarioUpdateComponent},
     ],
   },
 ];

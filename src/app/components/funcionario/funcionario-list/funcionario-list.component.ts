@@ -11,7 +11,7 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 })
 export class FuncionarioListComponent implements OnInit {
   DATA: Funcionario[] = [];
-  displayedColumns: string[] = ['id', 'nome', 'sobrenome', 'email', 'nis'];
+  displayedColumns: string[] = ['id', 'nome', 'sobrenome', 'email', 'nis', 'função'];
   dataSource = new MatTableDataSource<Funcionario>();
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
