@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FuncionarioService } from 'src/app/services/funcionario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-funcionario-list',
@@ -15,7 +16,9 @@ export class FuncionarioListComponent implements OnInit {
   dataSource = new MatTableDataSource<Funcionario>();
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private service: FuncionarioService) {}
+  constructor(
+    private service: FuncionarioService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.findAll();
@@ -25,6 +28,14 @@ export class FuncionarioListComponent implements OnInit {
     this.service.findAll().subscribe((response) => {
       this.dataSource = new MatTableDataSource<Funcionario>(response);
       this.dataSource.paginator = this.paginator;
+    });
+  }
+
+  deletar(id: number): void{    
+    this.service.delete(id).subscribe(() => {
+    this.findAll();
+    }, ex => {
+      
     });
   }
 }

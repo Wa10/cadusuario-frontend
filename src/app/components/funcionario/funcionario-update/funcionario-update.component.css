@@ -1,0 +1,27 @@
+.container {
+    width: 20%;
+    margin: 8rem auto auto auto;
+    padding: 3rem;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  
+  .mensagemErro {
+    background-color: rgba(24, 83, 235, 0.7);
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .label {
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 0.5rem;
+  }

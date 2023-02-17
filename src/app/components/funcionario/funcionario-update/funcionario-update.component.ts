@@ -1,16 +1,15 @@
-import { Funcionario } from './../../../models/funcionatios';
-import { FuncionarioService } from 'src/app/services/funcionario.service';
-import { FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Funcionario } from 'src/app/models/funcionatios';
+import { FuncionarioService } from 'src/app/services/funcionario.service';
 
 @Component({
-  selector: 'app-funcionario-create',
-  templateUrl: './funcionario-create.component.html',
-  styleUrls: ['./funcionario-create.component.css'],
+  selector: 'app-funcionario-update',
+  templateUrl: './funcionario-update.component.html',
+  styleUrls: ['./funcionario-update.component.css']
 })
-export class FuncionarioCreateComponent implements OnInit {
-  success: boolean = false;
+export class FuncionarioUpdateComponent implements OnInit {
   error: boolean = false;
 
   errorApi: string;
@@ -32,17 +31,25 @@ export class FuncionarioCreateComponent implements OnInit {
 
   constructor(
     private service: FuncionarioService,
-    private router: Router,) {}
+    private router: Router,
+    private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.funcionario.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.findById();
+  }
 
-  save(): void {
-    this.service.save(this.funcionario).subscribe(
+  findById(): void {
+    this.service.findById(this.funcionario.id).subscribe( response => this.funcionario = response)
+  }
+
+  update(): void {
+    this.service.update(this.funcionario).subscribe(
       response => {
-        this.success = true;
         this.router.navigate(['funcionarios'])
       },
       (errorResponse) => {
+        console.log(errorResponse)
         this.errorApi = errorResponse.error.error;
         this.error = true;
       }
@@ -57,4 +64,5 @@ export class FuncionarioCreateComponent implements OnInit {
       this.nis.valid
     );
   }
+
 }

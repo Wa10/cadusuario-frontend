@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Atualizar Funcionário</h1>
+  <form action="" class="form">
+
+    <div class="mensagemErro" *ngIf="error">
+        {{errorApi}}
+  </div>
+
+    <mat-form-field class="label" appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input 
+      [(ngModel)]="funcionario.nome"
+      [formControl]="nome"
+      required
+      maxlength="30"
+      minlength="2"
+      matInput />
+    </mat-form-field>
+
+    <mat-form-field class="label" appearance="fill">
+      <mat-label>Sobrenome</mat-label>
+      <input 
+      [(ngModel)]="funcionario.sobrenome"
+      [formControl]="sobrenome"
+      required
+      maxlength="50"
+      minlength="2"
+      matInput />
+    </mat-form-field>
+
+    <mat-form-field class="label" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input 
+      [(ngModel)]="funcionario.email"
+      [formControl]="email"
+      required
+      matInput />
+    </mat-form-field>
+
+    <mat-form-field class="label" appearance="fill">
+      <mat-label>NIS</mat-label>
+      <input
+      type="number"
+      [(ngModel)]="funcionario.nis"
+      [formControl]="nis"
+      required
+      matInput />
+    </mat-form-field>
+
+    <button [disabled]="!validacao()" (click)="update()" class="label" mat-raised-button color="primary">Atualizar</button>
+    <button routerLink="../../" class="label" mat-raised-button color="warn">Cancelar</button>
+
+  </form>
+</div>
+
